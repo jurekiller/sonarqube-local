@@ -3,9 +3,13 @@ kind: Kustomization
 
 helmCharts:
   - name: sonarqube
+    version: 2025.4.0
+    repo: https://SonarSource.github.io/helm-chart-sonarqube
     releaseName: sonarqube
-    chart: sonarqube
+    namespace: sonarqube
     valuesFile: values.yaml
+    valuesMerge: merge
+    includeCRDs: true
 
-generatorOptions:
-  disableNameSuffixHash: true
+patchesStrategicMerge:
+  - overlay/sonar-secret.yaml
