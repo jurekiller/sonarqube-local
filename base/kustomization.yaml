@@ -4,7 +4,7 @@ kind: Kustomization
 helmCharts:
   - name: sonarqube
     releaseName: sonarqube
-    chartHome: ./helm-chart
+    chart: sonarqube
     valuesFile: values.yaml
 
 generatorOptions:
